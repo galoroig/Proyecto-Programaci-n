@@ -19,6 +19,7 @@ if (isset($_SESSION['pagina_activa'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -64,6 +65,7 @@ if (isset($_SESSION['pagina_activa'])) {
 </html>
 <?php
   if (isset($_POST["cerrar"])) {
+    session_unset();
     session_destroy();
     header("Location: Login.php");
   }
