@@ -7,9 +7,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
-  <h1>Registrar</h1>
   <div class="container-fluid row">
-    <form method="POST" class="col-4">
+    <form method="POST" class="col-4 m-auto">
+      <h1>Registrar</h1>
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Usuario</label>
         <input type="text" class="form-control" name="usuario">
@@ -24,7 +24,6 @@
         <a href="Login.php" class="btn btn-primary">Iniciar Sesion</a>
       </div>
       <?php
-      include("Database.php");
       include("controladorRegistro.php");
       ?>
     </form>

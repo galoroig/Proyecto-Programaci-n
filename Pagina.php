@@ -3,13 +3,9 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-if (isset($_SESSION['pagina_activa'])) {
-    session_unset();
-    session_destroy();
-    header("Location: Login.php");
+if (!isset($_SESSION["usuarioInicio"])) {
+    header("Location: Login.php?cerrado=1");
     exit();
-} else {
-    $_SESSION['pagina_activa'] = true;
 }
 ?>
 <!DOCTYPE html>
@@ -42,7 +38,7 @@ if (isset($_SESSION['pagina_activa'])) {
           </a>
           <ul class="dropdown-menu">
             <form method="POST">
-              <li><a class="dropdown-item" href="Login.php" name="cerrar">Cerrar Sesion</a></li>
+              <li><a class="dropdown-item" href="Logout.php">Cerrar Sesion</a></li>
             </form>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><hr class="dropdown-divider"></li>
@@ -63,10 +59,3 @@ if (isset($_SESSION['pagina_activa'])) {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
-<?php
-  if (isset($_POST["cerrar"])) {
-    session_unset();
-    session_destroy();
-    header("Location: Login.php");
-  }
-?>

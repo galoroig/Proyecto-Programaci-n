@@ -6,19 +6,26 @@ if (isset($_POST["iniciar"])) {
         echo "Uno de los campos esta vacio";
     }
     else {
-        $_SESSION["usuarioInicio"] = $_POST["usuarioInicio"];
-        $_SESSION["claveInicio"] = $_POST["claveInicio"];
         $user = new User();
         $users = $user->getAll();
+        $encontrado = false;
         foreach($users as $u){
-            if (($u['nombre_user'] === $_SESSION["usuarioInicio"])) {
-                if (password_verify($_SESSION["claveInicio"], $u['contrasena'])) {
+            if (($u['nombre_user'] === $_POST["usuarioInicio"])) {
+                if (($u["tipo"] === "usuario") && password_verify($_POST["claveInicio"], $u['contrasena'])) {
+                    $_SESSION["usuarioInicio"] = $_POST["usuarioInicio"];
                     header("Location: Pagina.php");
+                    exit();
                 }
+                if (($u["tipo"] === "admin") && password_verify($_POST["claveInicio"], $u['contrasena'])) {
+                    $_SESSION["usuarioInicio"] = $_POST["usuarioInicio"];
+                    header("Location: Admin.php");
+                    exit();
+                }
+                $encontrado = true;
             }
-            else {
-                echo "usuario no encontrado";
-            }
+        }
+        if ($encontrado = false){
+                echo "Usuario no encontrado";
         }
     }
 }

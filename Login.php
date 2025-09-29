@@ -7,10 +7,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
-  <h1>Iniciar Sesion</h1>
   <div class="container-fluid row">
-    <form method="POST" class="col-4">
+    <form method="POST" class="col-4 m-auto">
       <div class="mb-3">
+        <h1>Iniciar Sesion</h1>
         <label for="exampleInputEmail1" class="form-label">Usuario</label>
         <input type="text" class="form-control" name="usuarioInicio">
       </div>
@@ -24,9 +24,10 @@
         <a href="Register.php" class="btn btn-primary">Registrar</a>
       </div>
       <?php
-      include("Database.php");
       include("controladorLogin.php");
       ?>
+      <div>juan 1234 usuario</div>
+      <div>galo 12345 admin</div>
     </form>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
